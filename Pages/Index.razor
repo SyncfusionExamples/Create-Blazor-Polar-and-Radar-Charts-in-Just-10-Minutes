@@ -1,0 +1,44 @@
+﻿@page "/"
+
+<SfChart Title="Weather Statistics">
+    <ChartSeriesCollection>
+        <ChartPrimaryXAxis  ValueType="Syncfusion.Blazor.Charts.ValueType.Category" 
+                           LabelPlacement="LabelPlacement.OnTicks"
+                           StartAngle="45" Coefficient="70">
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis Minimum="-25" Maximum="25" Interval="10" LabelFormat="{value}°C"></ChartPrimaryYAxis>
+        <ChartSeries Type="ChartSeriesType.Polar" DrawType="ChartDrawType.Line"
+             DataSource="@ChartData" XName="Month" YName="Temperature">
+           <ChartMarker Visible="true" Height="7" Width="7"></ChartMarker>
+        </ChartSeries>
+        
+    </ChartSeriesCollection>
+    <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+    
+</SfChart>
+
+@code
+
+{
+    public class ChartDataModel
+    {
+        public string Month { get; set; }
+        public double Temperature { get; set; }
+    }
+
+    public List<ChartDataModel> ChartData = new List<ChartDataModel>
+    {
+        new ChartDataModel { Month = "Jan", Temperature = -7.1 },
+        new ChartDataModel { Month = "Feb", Temperature = -3.7 },
+        new ChartDataModel { Month = "Mar", Temperature = 0.8  },
+        new ChartDataModel { Month = "Apr", Temperature = 6.3 },
+        new ChartDataModel { Month = "May", Temperature = 13.3 },
+        new ChartDataModel { Month = "Jun", Temperature = 18.0 },
+        new ChartDataModel { Month = "Jul", Temperature = 19.8 },
+        new ChartDataModel { Month = "Aug", Temperature = 18.1 },
+        new ChartDataModel { Month = "Sep", Temperature = 13.1 },
+        new ChartDataModel { Month = "Oct", Temperature = 4.1 },
+        new ChartDataModel { Month = "Nov", Temperature = -3.8 },
+        new ChartDataModel { Month = "Dec", Temperature = -6.8 }
+    };
+}
