@@ -1,12 +1,12 @@
 ﻿@page "/"
 
 <SfChart Title="Weather Statistics">
-    <ChartSeriesCollection>
-        <ChartPrimaryXAxis  ValueType="Syncfusion.Blazor.Charts.ValueType.Category" 
+     <ChartPrimaryXAxis  ValueType="Syncfusion.Blazor.Charts.ValueType.Category" 
                            LabelPlacement="LabelPlacement.OnTicks"
                            StartAngle="45" Coefficient="70">
         </ChartPrimaryXAxis>
         <ChartPrimaryYAxis Minimum="-25" Maximum="25" Interval="10" LabelFormat="{value}°C"></ChartPrimaryYAxis>
+    <ChartSeriesCollection>
         <ChartSeries Type="ChartSeriesType.Polar" DrawType="ChartDrawType.Line"
              DataSource="@ChartData" XName="Month" YName="Temperature">
            <ChartMarker Visible="true" Height="7" Width="7"></ChartMarker>
